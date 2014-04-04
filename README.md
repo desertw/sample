@@ -1,8 +1,8 @@
-1. The project is using wcf json restful service, so from client side we only use html/javascript/jquery to consume the data (json format) provided by the service;</p>
+1. The project is using wcf json restful service, so from client side we use html/javascript/jquery to consume the data (json format) provided by the service;
 
 2. The database schema/data can installed by the "install.sql", it will create tables, indexes, foreign keys, data. If you use different database name(default is "demo"), please update the connection string in web.config;
 
-3. The data access layer I used the sql to link;
+3. The data access layer I used the sql to linq;
 
 4. It used couchbase (I choosed "memcached" mode) as cache. Couchbase is high performance & scalable distributed database server. Please check their website for more informaiton. So mostly we only access to MS sql server database for 1st time data request;
 
