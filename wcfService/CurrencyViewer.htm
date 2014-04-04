@@ -1,0 +1,113 @@
+﻿ <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>View currency rate</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //Load currency code list
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: 'ExRateService.svc/GetCurrencyCodes', //Property a different url depends on how you set up the web server
+            data: '',
+            dataType: "json",
+            processData: false,
+            success: function (data) {
+                var toAppend = '';
+                $.each(data.d.AllCodes, function (i, o) {
+                    toAppend += '<option value=' + o.Code + '>' + o.Caption + '</option>';
+                });
+
+                $('#selFrom').append(toAppend);
+                $('#selTo').append(toAppend);
+            },
+            error: function (result) {
+                alert(result.responseText);
+            }
+        });
+
+        $('#tbDetails').hide();
+
+        //Load the requested currency rate list
+        $('#btnClick').click(function () {
+            var tbd = $("#tbDetails");
+            var v1 = $("#selFrom option:selected").val();
+            var v2 = $("#selTo option:selected").val();
+            if (v1 == v2) {
+                alert('please choose different currency');
+                return;
+            }
+
+            tbd.find("tr:gt(0)").remove();
+
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: 'ExRateService.svc/GetCurrencyRates', //Property a different url depends on how you set up the web server
+                data: '{"fromCode": "' + v1 + '", "toCode": "' + v2 + '"}',
+                dataType: "json",
+                processData: false,
+                success: function (data) {
+                    if (data.d.Items.length == 0) {
+                        tbd.append("<tr><td colspan=3>Sorry no available data</td></tr>");
+                    }
+                    else {
+                        $.each(data.d.Items, function (i, o) {
+                            tbd.append("<tr><td>" + o.PostDate + "</td><td>" + o.AveRate + "</td><td>" + o.EndRate + "</td></tr>");
+                        });
+                    }
+                    tbd.show();
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+
+        });
+    });
+    
+
+</script>
+<style type="text/css">
+table,th,td
+{
+    border:1px solid black;
+    border-collapse:collapse;
+}
+</style>
+</head>
+<body>
+<form id="form1" runat="server">
+<select id="selFrom" name="fromCur">
+</select>
+<b>To:</b>
+<select id="selTo" name="toCur">
+</select>
+<input type ="button" id="btnClick" value="Get Currency" />
+
+<br />
+<table id="tbDetails" cellpadding="0" cellspacing="0">
+<thead style="font-weight:bold">
+<tr style="border:solid 1px #000000">
+<td>Post date</td>
+<td>Averate rate</td>
+<td>End rate</td>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</form>
+
+<br /><br />
+<p>1. The project is using wcf json restful service, so from client side we only use html/javascript/jquery to consume the data (json format) provided by the service;</p>
+
+<p>2. The database schema/data can installed by the "install.sql", it will create tables, indexes, foreign keys, data. If you use different database name(default is "demo"), please update the connection string in web.config;</p>
+
+<p>3. It used couchbase (I choosed "memcached" mode) as cache. Couchbase is high performance & scalable distributed database server. Please check their website for more informaiton. So mostly we only access to MS sql server database for 1st time data request;</p>
+
+<p>4. We can flush cache when updating/feeding currency rate data into the ms sql server. It can be done via SSIS, window service etc. If you don't want to use the cache, just set the "allowCache" to "0" in web.config;</p>
+
+<p>The sample is not from real project. I just wrote it for a demo for you, there are places need to be enhanced. But we can get inspried from the practical sample codes. I hope you like and enjoy it. Any questions feel free to email me via desertwang@gmail.com. Thank you!</p>
+</body>
+</html>

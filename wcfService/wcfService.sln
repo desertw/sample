@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wcfService", "wcfService.csproj", "{7A394C82-F87F-4EEB-9AF5-0A00D18129F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "..\DAL\DAL.csproj", "{0CA5EB74-A11C-4245-BAA4-9CAE3845376F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "..\UnitTest\UnitTest.csproj", "{EB0D6F97-F2C8-4BB1-A5AF-280D57B3F8F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BF27F4E9-981C-44BD-9289-D927E39CED9F}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+		wcfService.vsmdi = wcfService.vsmdi
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\Common\Common.csproj", "{0EB30219-B504-4E52-A020-5EB665052A6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "..\BLL\BLL.csproj", "{67EA4ECB-B4F4-4D1B-9E12-B3ED4DE75019}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = wcfService.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A394C82-F87F-4EEB-9AF5-0A00D18129F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A394C82-F87F-4EEB-9AF5-0A00D18129F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A394C82-F87F-4EEB-9AF5-0A00D18129F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A394C82-F87F-4EEB-9AF5-0A00D18129F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CA5EB74-A11C-4245-BAA4-9CAE3845376F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CA5EB74-A11C-4245-BAA4-9CAE3845376F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CA5EB74-A11C-4245-BAA4-9CAE3845376F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CA5EB74-A11C-4245-BAA4-9CAE3845376F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB0D6F97-F2C8-4BB1-A5AF-280D57B3F8F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB0D6F97-F2C8-4BB1-A5AF-280D57B3F8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB0D6F97-F2C8-4BB1-A5AF-280D57B3F8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB0D6F97-F2C8-4BB1-A5AF-280D57B3F8F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EB30219-B504-4E52-A020-5EB665052A6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EB30219-B504-4E52-A020-5EB665052A6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EB30219-B504-4E52-A020-5EB665052A6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EB30219-B504-4E52-A020-5EB665052A6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67EA4ECB-B4F4-4D1B-9E12-B3ED4DE75019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67EA4ECB-B4F4-4D1B-9E12-B3ED4DE75019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67EA4ECB-B4F4-4D1B-9E12-B3ED4DE75019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67EA4ECB-B4F4-4D1B-9E12-B3ED4DE75019}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

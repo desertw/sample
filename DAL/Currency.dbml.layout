@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Currency">
+  <DataContextMoniker Name="/CurrencyDataContext" />
+  <nestedChildShapes>
+    <classShape Id="896addac-5fe1-4037-9b69-a35b816b25d2" absoluteBounds="0.75, 1, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/CurrencyDataContext/Currency" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e600dda-94cf-4f5c-90b0-0e7de83edf81" absoluteBounds="0.765, 1.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a1612c43-e6a6-45d6-999b-5de9c23fa08d" absoluteBounds="3.5, 0.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/CurrencyDataContext/ExRate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="af8c7c6a-5110-4994-af3e-a0841be5fcfb" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.88544840494792); (3.5 : 1.88544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CurrencyDataContext/Currency/Currency_ExRate" />
+      <nodes>
+        <classShapeMoniker Id="896addac-5fe1-4037-9b69-a35b816b25d2" />
+        <classShapeMoniker Id="a1612c43-e6a6-45d6-999b-5de9c23fa08d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.38022420247396); (3.5 : 1.38022420247396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CurrencyDataContext/Currency/Currency_ExRate1" />
+      <nodes>
+        <classShapeMoniker Id="896addac-5fe1-4037-9b69-a35b816b25d2" />
+        <classShapeMoniker Id="a1612c43-e6a6-45d6-999b-5de9c23fa08d" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

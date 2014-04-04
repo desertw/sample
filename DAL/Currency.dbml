@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="demo" Class="CurrencyDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=demo;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="demoConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Currency" Member="Currencies">
+    <Type Name="Currency">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="Symbol" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="Currency_ExRate" Member="ExRates" ThisKey="Code" OtherKey="FromCurCode" Type="ExRate" />
+      <Association Name="Currency_ExRate1" Member="ExRates1" ThisKey="Code" OtherKey="ToCurCode" Type="ExRate" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExRate" Member="ExRates">
+    <Type Name="ExRate">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FromCurCode" Type="System.String" DbType="NChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="ToCurCode" Type="System.String" DbType="NChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="AverageRate" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="EndOfDayRate" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="PostDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Currency_ExRate" Member="Currency" ThisKey="FromCurCode" OtherKey="Code" Type="Currency" IsForeignKey="true" />
+      <Association Name="Currency_ExRate1" Member="Currency1" ThisKey="ToCurCode" OtherKey="Code" Type="Currency" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
